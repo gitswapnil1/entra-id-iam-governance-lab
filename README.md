@@ -16,6 +16,22 @@ A hands-on Identity and Access Management (IAM) governance lab and security asse
 
 ---
 
+## Evidence & Visual Walkthrough
+
+### 1. Baseline Tenant Hardening (Security Defaults & MFA)
+Enabled **Security Defaults** in Microsoft Entra ID to enforce tenant-wide Multi-Factor Authentication (MFA) for administrators and block legacy authentication protocols (POP3, IMAP, SMTP).
+![Tenant Security Defaults](assets/01-tenant-security-defaults.png)
+
+### 2. Least-Privilege RBAC Delegation
+Delegated scoped user administration using the built-in **User Administrator** role instead of assigning standing **Global Administrator** privileges.
+![RBAC Least Privilege](assets/02-rbac-least-privilege.png)
+
+### 3. Leaver Offboarding & Audit Log Verification
+Revoked application role assignments on `Finance-App-Prod` during simulated offboarding and verified non-repudiation via Entra ID Directory Audit Logs.
+![Audit Log Offboarding](assets/03-audit-log-offboarding.png)
+
+---
+
 ## Repository Structure
 
 ```text
@@ -27,3 +43,8 @@ entra-id-iam-governance-lab/
     ├── 01-tenant-security-defaults.png
     ├── 02-rbac-least-privilege.png
     └── 03-audit-log-offboarding.png
+```
+---
+
+## Related IAM Lab
+* **[Microsoft Entra ID: JML & Access Drift Remediation Lab](https://github.com/gitswapnil1/entra-id-jml-access-drift-lab):** Companion lab simulating privilege creep during a cross-departmental transfer (`Finance → HR`), manual entitlement cleanup across apps and security groups, and full offboarding audit verification.
